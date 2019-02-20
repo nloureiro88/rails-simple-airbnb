@@ -1,0 +1,33 @@
+<h2>Flats</h2>
+<br>
+
+<br>
+  <form action="flats_path">
+    <input type="text" id="search" placeholder="Search flats...">
+    <input type="submit" value="Search">
+  </form>
+<br>
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Description</th>
+    <th>€/Night</th>
+    <th>Guests</th>
+  </thead>
+  <tbody>
+    <% @flats.each do |flat| %>
+      <tr>
+        <td><%= link_to flat.name, flat_path(flat) %></td>
+        <td><%= flat.address %></td>
+        <td><%= flat.description %></td>
+        <td><%= flat.price_per_night %> €</td>
+        <td><%= flat.number_of_guests %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to "+ Add Flat", new_flat_path %>
